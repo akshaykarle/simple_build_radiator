@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <link href="projects.css" rel="stylesheet" type="text/css">
+  </head>
+  <ul class="projects">
+  <% @projects.each do |project| %>
+    <li class="project <%= project.status.downcase %>">
+      <span class="name"><%= project.name %></span>
+    </li>
+  <% end %>
+  </ul>
+<html>

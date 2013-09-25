@@ -1,6 +1,6 @@
 ENV['RACK_ENV'] ||= 'test'
 
-require ::File.expand_path('../../app/build_radiator.rb',  __FILE__)
+require ::File.expand_path('../../application.rb',  __FILE__)
 
 require 'rspec'
 require 'rack/test'

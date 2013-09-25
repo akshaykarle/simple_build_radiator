@@ -1,0 +1,26 @@
+body {
+  background-color: black;
+}
+
+.projects {
+  list-style: none;
+}
+
+.project {
+  margin: 4px;
+  padding: 10px 10px;
+  border-radius: 10px;
+
+  &.success {
+    background-color: green;
+  }
+
+  &.failure {
+    background-color: red;
+  }
+}
+
+.name {
+  font-size: 30px;
+  color: white;
+}

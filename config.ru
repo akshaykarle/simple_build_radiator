@@ -1,3 +1,3 @@
-require './app/build_radiator'
+require './application'
 
 run Sinatra::Application
