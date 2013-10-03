@@ -6,7 +6,12 @@
     </script>
   </head>
   <ul class="projects">
-  <% @projects.each do |project| %>
+  <% @failure_projects.each do |project| %>
+    <li class="project <%= project.status.downcase %>">
+      <span class="name"><%= project.name %></span>
+    </li>
+  <% end %>
+  <% @success_projects.each do |project| %>
     <li class="project <%= project.status.downcase %>">
       <span class="name"><%= project.name %></span>
     </li>

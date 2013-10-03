@@ -5,11 +5,12 @@ require 'sass'
 
 get '/' do
   return halt 422 unless ci_servers
-  @projects = []
+  projects = []
   ci_servers.each do |ci_server|
     cc = CiStatus::CruiseControl.new(ci_server['url'], ci_server['username'], ci_server['password'])
-    @projects += cc.projects
+    projects += cc.projects
   end
+  @failure_projects, @success_projects = projects.partition { |project| project.failure? }
   erb 'projects.html'.to_sym
 end
 
