@@ -18,7 +18,9 @@ describe "Application" do
 
     it "should generate a list of urls when a valid yaml file is supplied" do
       File.should_receive(:read).with('config/app_config.yml').and_return("- url: 'abd'")
-      CiStatus::CruiseControl.should_receive(:new)
+      cc = double(CiStatus::CruiseControl)
+      cc.should_receive(:projects).and_return([])
+      CiStatus::CruiseControl.should_receive(:new).and_return(cc)
       get '/'
       expect(last_response).to be_ok
     end
@@ -34,8 +36,10 @@ describe "Application" do
   describe "CruiseControl" do
     it "should create a CruiseControl object with the right urls" do
       File.should_receive(:read).with('config/app_config.yml').and_return("- url: 'abc'\n- url: 'def'")
-      CiStatus::CruiseControl.should_receive(:new).with('abc')
-      CiStatus::CruiseControl.should_receive(:new).with('def')
+      cc = double(CiStatus::CruiseControl)
+      cc.should_receive(:projects).exactly(2).times.and_return([])
+      CiStatus::CruiseControl.should_receive(:new).with('abc').and_return(cc)
+      CiStatus::CruiseControl.should_receive(:new).with('def').and_return(cc)
       get '/'
       expect(last_response).to be_ok
     end

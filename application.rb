@@ -4,8 +4,6 @@ require 'yaml'
 require 'sass'
 
 get '/' do
-  yaml_content = File.read('config/app_config.yml')
-  urls = YAML::load(yaml_content)
   return halt 422 unless urls
   @projects = []
   urls.each do |url_hash|
@@ -25,4 +23,8 @@ end
 
 error Psych::SyntaxError do
   'Could not parse the supplied yaml file'
+end
+
+def urls
+  @urls ||= YAML::load(File.read('config/app_config.yml'))
 end
