@@ -1,8 +1,13 @@
-GEM
-  remote: https://rubygems.org/
+GIT
+  remote: https://github.com/zendesk/ci_status.git
+  revision: ecc2eaae8d9d7ec05b152fe28dc6ae7410596dd5
   specs:
     ci_status (1.0.0)
       nokogiri (~> 1.5)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
     diff-lcs (1.2.4)
     nokogiri (1.5.10)
     rack (1.5.2)
@@ -27,7 +32,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ci_status (~> 1.0)
+  ci_status!
   nokogiri (~> 1.5.10)
   rspec
   sass

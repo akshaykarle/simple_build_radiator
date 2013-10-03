@@ -10,8 +10,8 @@ RSpec.configure do |config|
   config.backtrace_clean_patterns = []
 
   config.tty = true
-end
 
-def app
+  def app
   Sinatra::Application
+  end
 end

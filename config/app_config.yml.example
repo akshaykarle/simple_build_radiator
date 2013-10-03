@@ -1,1 +1,7 @@
-- url: https://example.com/cctray.xml
+- type: Snap
+  url: https://snap-ci.com/secret/cctray.xml
+
+- type: Go
+  username: user
+  password: password
+  url: https://example.com/cctray.xml
